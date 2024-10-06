@@ -32,15 +32,15 @@ import {
   Row,
   Col,
 } from "reactstrap";
-
+// noooooooo
 function User() {
-  const [donations, setDonations] = useState(12); // Initialize donations count
-  const [amountDonated, setAmountDonated] = useState(100); // Initialize amount donated
+  const [donations, setDonations] = useState(12); // Initialize donations coun
+    const [amountDonated, setAmountDonated] = useState(100); // Initialize amount donated
 
   // Function to simulate a new donation
   const handleNewDonation = () => {
     setDonations(prev => prev + 1); // Increment donations count
-    setAmountDonated(prev => prev); // Simulate an increase in donation amount (or any logic you want)
+    setAmountDonated(prev => prev + 10); // Simulate an increase in donation amount (or any logic you want)
   };
 
   return (
