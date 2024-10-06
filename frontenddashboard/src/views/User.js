@@ -16,7 +16,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, { useState } from "react"; // Import useState
 
 // reactstrap components
 import {
@@ -34,6 +34,15 @@ import {
 } from "reactstrap";
 
 function User() {
+  const [donations, setDonations] = useState(12); // Initialize donations count
+  const [amountDonated, setAmountDonated] = useState(100); // Initialize amount donated
+
+  // Function to simulate a new donation
+  const handleNewDonation = () => {
+    setDonations(prev => prev + 1); // Increment donations count
+    setAmountDonated(prev => prev); // Simulate an increase in donation amount (or any logic you want)
+  };
+
   return (
     <>
       <div className="content">
@@ -62,13 +71,13 @@ function User() {
                   <Row>
                     <Col className="ml-auto" lg="5" md="6" xs="6">
                       <h5>
-                        12 <br />
+                        {donations} <br /> {/* Display donation count */}
                         <small>Donations</small>
                       </h5>
                     </Col>
                     <Col className="ml-auto mr-auto" lg="4" md="6" xs="6">
                       <h5>
-                        $100 <br />
+                        ${amountDonated} <br /> {/* Display total amount donated */}
                         <small>Amount</small>
                       </h5>
                     </Col>
@@ -105,6 +114,7 @@ function User() {
                           color="success"
                           outline
                           size="sm"
+                          onClick={handleNewDonation} // Call to simulate donation
                         >
                           <i className="fa fa-envelope" />
                         </Button>
@@ -134,6 +144,7 @@ function User() {
                           color="success"
                           outline
                           size="sm"
+                          onClick={handleNewDonation} // Call to simulate donation
                         >
                           <i className="fa fa-envelope" />
                         </Button>
@@ -163,6 +174,7 @@ function User() {
                           color="success"
                           outline
                           size="sm"
+                          onClick={handleNewDonation} // Call to simulate donation
                         >
                           <i className="fa fa-envelope" />
                         </Button>

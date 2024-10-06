@@ -15,7 +15,8 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-*/import React from "react";
+*/
+import React, { useState } from "react"; // Import useState
 // react plugin used to create charts
 import { Line, Pie } from "react-chartjs-2";
 // reactstrap components
@@ -36,13 +37,15 @@ import {
   dashboardNASDAQChart,
 } from "variables/charts.js";
 
-import my_img from "Our_logo.png";
- // Update with the correct path to your image
+import my_img from "Our_logo.png"; // Update with the correct path to your image
 
 function Dashboard() {
-  // Function to open a new tab to example.com
+  const [donations, setDonations] = useState(12); // Initialize donations count
+
+  // Function to open a new tab to example.com and increment donation count
   const openNewTab = () => {
-    window.open("http://localhost:5173/", "_blank");
+    window.open("http://localhost:5173/", "_blank"); // Change to your desired URL
+    setDonations(prev => prev + 1); // Increment donation count
   };
 
   return (
@@ -129,18 +132,19 @@ function Dashboard() {
           </Col>
         </Row>
 
-        {/* Add the new button here */}
+        {/* Button to donate food */}
         <Row>
           <Col lg="12">
             <Button color="primary" onClick={openNewTab}>
-            <img
-                      alt="..."
-                      className="avatar border-gray"
-                      src={my_img}
-                      style={{ width: '30px', height: '30px', marginRight: '10px' }}
-                    />
+              <img
+                alt="..."
+                className="avatar border-gray"
+                src={my_img}
+                style={{ width: '30px', height: '30px', marginRight: '10px' }}
+              />
               Donate Food
             </Button>
+            <h5 style={{ marginTop: '10px' }}>{donations} Donations Made</h5> {/* Display donations count */}
           </Col>
         </Row>
 
